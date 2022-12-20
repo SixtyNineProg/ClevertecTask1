@@ -4,6 +4,7 @@ import klimov.interfaces.Store;
 import klimov.models.Card;
 import klimov.models.Product;
 import lombok.NoArgsConstructor;
+import lombok.extern.java.Log;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @NoArgsConstructor
+@Log
 public class StoreImpl implements Store {
   public static final String CARDS = "Cards";
   public static final String REGEX = ";";
@@ -72,7 +74,7 @@ public class StoreImpl implements Store {
         }
       }
     } catch (IOException e) {
-      e.printStackTrace();
+      log.warning(e.toString());
     }
     return cardsList;
   }

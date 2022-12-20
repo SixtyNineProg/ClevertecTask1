@@ -5,15 +5,12 @@ import klimov.impl.StoreImpl;
 import klimov.interfaces.Store;
 import klimov.models.Card;
 import klimov.models.Product;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 import java.util.Map;
 
-@Slf4j
 public class App {
   public static void main(String[] args) {
-    org.apache.log4j.BasicConfigurator.configure();
 
     Store store = new StoreImpl();
     CheckMakerImpl checkMaker = new CheckMakerImpl();

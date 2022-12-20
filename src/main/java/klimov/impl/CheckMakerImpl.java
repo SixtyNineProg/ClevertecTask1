@@ -3,7 +3,7 @@ package klimov.impl;
 import klimov.interfaces.CheckMaker;
 import klimov.models.Card;
 import klimov.models.Product;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.java.Log;
 
 import java.io.PrintStream;
 import java.math.BigDecimal;
@@ -14,7 +14,8 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@Slf4j
+
+@Log
 public class CheckMakerImpl implements CheckMaker {
   public static final int MIN_COUNT_FOR_DISCOUNT = 6;
   public static final double DISCOUNT_COEFFICIENT_FOR_THIS_PRODUCT = 0.9;
@@ -27,7 +28,7 @@ public class CheckMakerImpl implements CheckMaker {
       sB.append(arg).append(" ");
     }
     if (sB.toString().indexOf("card") < 4) {
-      log.warn("String doesn't match format");
+      log.warning("String doesn't match format");
     }
     String[] newArgs = sB.toString().split("card");
     String[] cardAndFileName = newArgs[1].split(" ");
@@ -49,7 +50,7 @@ public class CheckMakerImpl implements CheckMaker {
   @Override
   public Map<Integer, Integer> createMapForItemIdAndQuantity(String itemIdQuantityNumbers) {
     if (!Pattern.matches("(\\d-\\d )+", itemIdQuantityNumbers)) {
-      log.warn("String doesn't match format");
+      log.warning("String doesn't match format");
     }
     Map<Integer, Integer> mapForItemIdAndQuantity = new HashMap<>();
     String[] idAndQtys = itemIdQuantityNumbers.split(" ");
@@ -81,7 +82,7 @@ public class CheckMakerImpl implements CheckMaker {
         menu.put(products.get(item), Double.valueOf(round(totalPrice, 2)));
       }
     } catch (Exception e) {
-      log.warn("Not found this product");
+      log.warning("Not found this product");
     }
     return menu;
   }
@@ -127,7 +128,7 @@ public class CheckMakerImpl implements CheckMaker {
           "%s%s%s%65s%s%n", "VAT", discountsPercent, "%", "$", round(totalDiscountsMoney, 2));
       printStream.printf("%s%65s%s%n", "TOTAL", "$", round(totalPriceAll, 2));
     } catch (Exception e) {
-      log.warn(String.valueOf(e));
+      log.warning(String.valueOf(e));
     } finally {
       log.info("OutputFile located to:" + OUTPUT_FILE_NAME);
     }
