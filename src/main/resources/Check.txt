@@ -1,0 +1,15 @@
+                                  CASH RECEIPT
+                                 SUPERMARKET 123
+                          12, MILKYWAY Galaxy/ Earth
+                                Tel :123-456-7890
+CASHIER   №1520                                          DATE:20/12/2022
+                                                           TIME:01:25:01
+-------------------------------------------------------------------------------
+QTI             DESCRIPTION                            PRICE         TOTAL
+ 1          Milk chocolate                             $1.35         $1.35
+ 1                 Oatmeal                             $0.50         $0.50
+ 5                 Bananas                             $2.36         $11.80
+===============================================================================
+TAXABLE TOT                                                          $12.97
+VAT5%                                                                $0.68
+TOTAL                                                                $13.65
